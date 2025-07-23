@@ -1,0 +1,23 @@
+<h1 class="">{{ introText|titlecase }}</h1>
+
+<a [routerLink]="['/login']">Login</a>
+
+<div class="stationList">
+
+  @for(station of stations; track station.id){
+    <div >
+      <h2>{{ station.nom }}</h2>
+      <p [ngClass]="{'highPower' : (station.puissance|slice:0:-2) > '20'}">
+        Puissance: {{ station.puissance|slice:0:-2 }} Kw
+      </p>
+      <h2>{{ station.adresse }}</h2>
+
+      <a [routerLink]="['/station', station.id]">Détail</a>
+
+    </div>
+  }@empty {
+    <p>Aucun résultat</p>
+  }
+
+</div>
+
