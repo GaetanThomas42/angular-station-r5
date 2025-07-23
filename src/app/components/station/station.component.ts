@@ -9,13 +9,18 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './station.component.css'
 })
 export class StationComponent {
-		route: ActivatedRoute = inject(ActivatedRoute);
-    //Injection de dépendance avec inject méthode Angular
-    stationId: number| undefined;
+
+  //Injection de dépendance avec inject méthode Angular
+	route: ActivatedRoute = inject(ActivatedRoute);
+
+  //Propriété représentant l'id de la station
+  stationId: number| undefined;
 
     constructor(){
+      // ID présent dans l'url
       let urlId: string | null = this.route.snapshot.paramMap.get('id');
 
+      //Si l'id existe dans l'url
       if(urlId){
         this.stationId = parseInt(urlId);
       }else{
