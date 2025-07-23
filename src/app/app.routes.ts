@@ -15,9 +15,5 @@ export const routes: Routes = [
   {
     path: 'station/:id',
     component: StationComponent
-  },
-  {
-    path: '**',
-    redirectTo: 'home'
-  },// Route wildcard pour 404, qui redirige a la route "home"
+  }
 ];
