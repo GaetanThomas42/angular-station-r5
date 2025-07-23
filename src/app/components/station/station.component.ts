@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -8,17 +8,14 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './station.component.html',
   styleUrl: './station.component.css'
 })
-export class StationComponent {
-
+export class StationComponent implements OnInit {
   //Injection de dépendance avec inject méthode Angular
   route: ActivatedRoute = inject(ActivatedRoute);
-
   router: Router = inject(Router);
-
   //Propriété représentant l'id de la station
   stationId: number | undefined;
 
-  constructor() {
+  ngOnInit(): void {
     // ID présent dans l'url
     let urlId: string | null = this.route.snapshot.paramMap.get('id');
 
@@ -37,4 +34,5 @@ export class StationComponent {
     }
 
   }
+
 }
