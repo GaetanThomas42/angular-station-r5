@@ -6,7 +6,17 @@
 }
 
 .activeButton{
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.test{
   color: #007bff;
+
+}
+
+.activeButton2{
+  color: #ff0000;
   font-weight: bold;
   text-decoration: underline;
 }
