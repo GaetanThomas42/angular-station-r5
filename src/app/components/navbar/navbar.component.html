@@ -1,5 +1,11 @@
 <div class="nav">
   <img src="images/favicon.ico"><p>{{ title }}</p>
-  <a [routerLink]="['/home']">Home</a>
-  <a [routerLink]="['/login']">Login</a>
+  <a
+    [routerLink]="['/home']"
+    routerLinkActive="activeButton"
+  >Home</a>
+  <a
+  [routerLink]="['/login']"
+  routerLinkActive="activeButton"
+>Login</a>
 </div>

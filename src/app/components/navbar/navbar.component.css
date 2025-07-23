@@ -4,3 +4,9 @@
   background-color: black;
   color: white;
 }
+
+.activeButton{
+  color: #007bff;
+  font-weight: bold;
+  text-decoration: underline;
+}
