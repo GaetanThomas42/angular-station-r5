@@ -6,13 +6,14 @@
 
   @for(station of stations; track station.id){
     <div >
-      <h2>{{ station.nom }}</h2>
-      <p [ngClass]="{'highPower' : (station.puissance|slice:0:-2) > '20'}">
-        Puissance: {{ station.puissance|slice:0:-2 }} Kw
+      <img [src]="station.coverImage" [alt]="station.name + ' cover image'">
+      <h2>{{ station.name }}</h2>
+      <p [ngClass]="{'highPower' : (station.power|slice:0:-2) > '20'}">
+        Puissance: {{ station.power|slice:0:-2 }} Kw
       </p>
-      <h2>{{ station.adresse }}</h2>
-
-      <a [routerLink]="['/station', station.id]">Détail</a>
+      <h2>{{ station.address }}</h2>
+      <p>Reviews: {{ station.reviews.length }}</p>
+      <a [routerLink]="['/station-detail', station.id]">Détail</a>
 
     </div>
   }@empty {

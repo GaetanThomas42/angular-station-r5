@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
-import { StationComponent } from './components/station/station.component';
+import { StationDetailComponent } from './components/station-detail/station-detail.component';
 
 export const routes: Routes = [
   {
@@ -13,11 +13,12 @@ export const routes: Routes = [
     component: LoginComponent,
   },
   {
-    path: 'station/:id',
-    component: StationComponent
+    path: 'station-detail/:id',
+    component: StationDetailComponent
   },
   {
-    path: '**',
-    redirectTo: ''
-  },// Route wildcard pour 404, qui redirige a la route "home"
+    path: '**', // Route wildcard pour 404
+    redirectTo: 'home', // redirection a la route "home"
+    //component: NotFoundComponent <- composant a créer pour affiche rune 404
+  },
 ];
