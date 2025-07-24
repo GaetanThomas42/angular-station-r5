@@ -1,5 +1,537 @@
-/* You can add global styles to this file, and also import other style files */
-body{
-  padding: 0;
-  margin: 0;
+/* ========================================
+   Override des couleurs Bootstrap avec CSS
+   ======================================== */
+
+:root {
+  /* Couleurs principales personnalisées */
+  --bs-primary: #1e40af;
+  --bs-primary-rgb: 30, 64, 175;
+  --bs-secondary: #64748b;
+  --bs-secondary-rgb: 100, 116, 139;
+  --bs-success: #059669;
+  --bs-success-rgb: 5, 150, 105;
+  --bs-info: #0891b2;
+  --bs-info-rgb: 8, 145, 178;
+  --bs-warning: #d97706;
+  --bs-warning-rgb: 217, 119, 6;
+  --bs-danger: #dc2626;
+  --bs-danger-rgb: 220, 38, 38;
+
+  /* Couleurs spécifiques aux stations de recharge */
+  --electric-blue: #0ea5e9;
+  --electric-blue-rgb: 14, 165, 233;
+  --charging-green: #10b981;
+  --charging-green-rgb: 16, 185, 129;
+  --station-orange: #f59e0b;
+  --station-orange-rgb: 245, 158, 11;
+
+  /* Variables pour les effets */
+  --station-border-radius: 0.75rem;
+  --station-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --station-shadow-hover: 0 8px 25px rgba(14, 165, 233, 0.15);
 }
+
+/* ========================================
+   Override des classes Bootstrap principales
+   ======================================== */
+
+/* Couleurs de fond */
+.bg-primary { background-color: var(--bs-primary) !important; }
+.bg-electric { background-color: var(--electric-blue) !important; }
+.bg-charging { background-color: var(--charging-green) !important; }
+.bg-station { background-color: var(--station-orange) !important; }
+
+/* Couleurs de texte */
+.text-primary { color: var(--bs-primary) !important; }
+.text-electric { color: var(--electric-blue) !important; }
+.text-charging { color: var(--charging-green) !important; }
+.text-station { color: var(--station-orange) !important; }
+
+/* Couleurs de bordure */
+.border-primary { border-color: var(--bs-primary) !important; }
+.border-electric { border-color: var(--electric-blue) !important; }
+.border-charging { border-color: var(--charging-green) !important; }
+.border-station { border-color: var(--station-orange) !important; }
+
+/* ========================================
+   Boutons personnalisés
+   ======================================== */
+
+/* Bouton Primary override */
+.btn-primary {
+  background-color: var(--bs-primary);
+  border-color: var(--bs-primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #1d4ed8;
+  border-color: #1d4ed8;
+}
+
+.btn-primary:focus, .btn-primary.focus {
+  box-shadow: 0 0 0 0.2rem rgba(30, 64, 175, 0.5);
+}
+
+/* Bouton Electric */
+.btn-electric {
+  background-color: var(--electric-blue);
+  border-color: var(--electric-blue);
+  color: white;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-electric:hover {
+  background-color: #0284c7;
+  border-color: #0284c7;
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
+}
+
+.btn-electric:focus, .btn-electric.focus {
+  box-shadow: 0 0 0 0.2rem rgba(14, 165, 233, 0.5);
+  color: white;
+}
+
+.btn-electric:active {
+  background-color: #0369a1;
+  border-color: #0369a1;
+  color: white;
+}
+
+/* Bouton Charging */
+.btn-charging {
+  background-color: var(--charging-green);
+  border-color: var(--charging-green);
+  color: white;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-charging:hover {
+  background-color: #059669;
+  border-color: #059669;
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.btn-charging:focus, .btn-charging.focus {
+  box-shadow: 0 0 0 0.2rem rgba(16, 185, 129, 0.5);
+  color: white;
+}
+
+/* Bouton Station */
+.btn-station {
+  background-color: var(--station-orange);
+  border-color: var(--station-orange);
+  color: white;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-station:hover {
+  background-color: #d97706;
+  border-color: #d97706;
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+}
+
+.btn-station:focus, .btn-station.focus {
+  box-shadow: 0 0 0 0.2rem rgba(245, 158, 11, 0.5);
+  color: white;
+}
+
+/* ========================================
+   Styles spécifiques aux stations
+   ======================================== */
+
+/* Cards des stations */
+.station-card {
+  border-left: 4px solid var(--electric-blue);
+  border-radius: var(--station-border-radius);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.station-card:hover {
+  border-left-color: var(--charging-green);
+  transform: translateY(-3px);
+  box-shadow: var(--station-shadow-hover);
+}
+
+.station-card .card-img-top {
+  transition: transform 0.3s ease;
+}
+
+.station-card:hover .card-img-top {
+  transform: scale(1.05);
+}
+
+/* Badge de puissance avec gradient */
+.power-badge {
+  background: linear-gradient(135deg, var(--electric-blue), var(--charging-green));
+  border: none;
+  color: white;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Information de puissance */
+.power-info {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.high-power {
+  color: var(--charging-green) !important;
+  position: relative;
+}
+
+.high-power::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: var(--charging-green);
+  border-radius: 50%;
+  margin-right: 8px;
+  animation: pulse-green 2s infinite;
+}
+
+/* ========================================
+   Effets et animations
+   ======================================== */
+
+.hover-shadow {
+  transition: box-shadow 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.hover-shadow:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+  transform: translateY(-2px);
+}
+
+.transition {
+  transition: all 0.3s ease;
+}
+
+/* Animation pour les indicateurs de charge rapide */
+@keyframes pulse-green {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ========================================
+   Material Icons alignement
+   ======================================== */
+
+.material-icons {
+  vertical-align: middle;
+  line-height: 1;
+}
+
+.material-icons.align-middle {
+  vertical-align: middle !important;
+}
+
+/* Tailles spécifiques pour les icônes */
+.material-icons.small { font-size: 16px; }
+.material-icons.medium { font-size: 24px; }
+.material-icons.large { font-size: 32px; }
+.material-icons.xl { font-size: 48px; }
+
+/* ========================================
+   État vide personnalisé
+   ======================================== */
+
+.empty-state {
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+.empty-state .material-icons {
+  font-size: 72px;
+  color: #9ca3af;
+  margin-bottom: 1rem;
+  opacity: 0.7;
+}
+
+/* ========================================
+   Responsive adjustments
+   ======================================== */
+
+@media (max-width: 768px) {
+  .display-4 {
+    font-size: 2rem;
+  }
+
+  .btn-lg {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+  }
+
+  .station-card {
+    margin-bottom: 1rem;
+  }
+
+  .power-badge {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .card-body {
+    padding: 1rem;
+  }
+
+  .display-4 {
+    font-size: 1.75rem;
+  }
+}
+
+/* ========================================
+   Utilitaires supplémentaires
+   ======================================== */
+
+/* Classes d'espacement personnalisées */
+.py-6 { padding-top: 3rem !important; padding-bottom: 3rem !important; }
+.my-6 { margin-top: 3rem !important; margin-bottom: 3rem !important; }
+
+/* Classes de shadow personnalisées */
+.shadow-electric {
+  box-shadow: 0 4px 6px -1px rgba(14, 165, 233, 0.1), 0 2px 4px -1px rgba(14, 165, 233, 0.06) !important;
+}
+
+.shadow-charging {
+  box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.1), 0 2px 4px -1px rgba(16, 185, 129, 0.06) !important;
+}
+
+/* Classes de bordure arrondies personnalisées */
+.rounded-xl { border-radius: 0.75rem !important; }
+.rounded-2xl { border-radius: 1rem !important; }
+/* ========================================
+   Navbar simple avec votre structure
+   ======================================== */
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, var(--electric-blue), var(--charging-green));
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Brand section */
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.navbar-logo {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  filter: brightness(1.2);
+}
+
+.brand-text {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+/* Navigation links container */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Individual nav links */
+.nav-link-custom {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-link-custom:hover {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.nav-link-custom .material-icons {
+  font-size: 20px;
+  transition: transform 0.3s ease;
+}
+
+.nav-link-custom:hover .material-icons {
+  transform: scale(1.1);
+}
+
+.link-text {
+  font-size: 0.95rem;
+}
+
+/* États actifs */
+.activeButton {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  color: white !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  font-weight: 600;
+}
+
+.activeButton2 {
+  background-color: var(--station-orange) !important;
+  color: white !important;
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.4);
+  font-weight: 600;
+}
+
+.activeButton:hover,
+.activeButton2:hover {
+  transform: none;
+  opacity: 0.9;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .nav {
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .nav-link-custom {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .nav-link-custom .material-icons {
+    font-size: 18px;
+  }
+
+  .brand-text {
+    font-size: 1.25rem;
+  }
+
+  .navbar-logo {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+@media (max-width: 576px) {
+  .nav {
+    flex-direction: column;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .nav-links {
+    justify-content: center;
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  .link-text {
+    display: none;
+  }
+
+  .nav-link-custom {
+    min-width: 48px;
+    justify-content: center;
+    padding: 0.5rem;
+  }
+
+  .nav-link-custom .material-icons {
+    font-size: 24px;
+  }
+}
+
+/* Animation pour l'entrée */
+.nav {
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Effet de pulse sur les liens actifs */
+.activeButton::after,
+.activeButton2::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 0.5rem;
+  animation: pulse-border 2s infinite;
+  pointer-events: none;
+}
+
+@keyframes pulse-border {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

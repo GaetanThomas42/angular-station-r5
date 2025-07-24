@@ -1,3 +1,18 @@
-.highPower{
-  color: green;
+.hover-shadow {
+  transition: box-shadow 0.3s ease-in-out, transform 0.2s ease-in-out;
 }
+
+.hover-shadow:hover {
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
+  transform: translateY(-2px);
+}
+
+.transition {
+  transition: all 0.3s ease;
+}
+
+.highPower {
+  color: #28a745 !important;
+  font-weight: bold;
+}
+

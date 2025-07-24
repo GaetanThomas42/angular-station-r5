@@ -16,7 +16,8 @@ export class HomeComponent implements OnInit{
 
   stationService: StationService = inject(StationService);
 
-  introText : string = "bienvenue dans mon cours";
+  introText : string = "Trouvez facilement les stations de recharge électrique près de chez vous.Consultez les informations détaillées, la puissance disponible et les avis des utilisateurs pour faire le meilleur choix pour votre véhicule électrique.";
+  
   stations: Array<Station> = [];
 
   ngOnInit(): void {

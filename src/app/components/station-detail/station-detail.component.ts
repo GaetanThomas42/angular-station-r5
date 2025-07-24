@@ -8,7 +8,7 @@ import { Station } from '../../models/station.interface';
   standalone: true,
   imports: [],
   templateUrl: './station-detail.component.html',
-  styleUrl: './station-detail.component.css'
+  styleUrl: './station-detail.component.css',
 })
 export class StationDetailComponent implements OnInit{
 

@@ -1,11 +1,24 @@
-<div class="nav">
-  <img src="images/favicon.ico"><p>{{ title }}</p>
-  <a
-    [routerLink]="['/home']"
-    routerLinkActive="activeButton2"
-  >Home</a>
-  <a
-  [routerLink]="['/login']"
-  routerLinkActive="activeButton test"
->Login</a>
+<div class="nav navbar-custom">
+  <div class="nav-brand">
+    <img src="images/favicon.ico" class="navbar-logo" alt="Logo">
+    <p class="brand-text">{{ title }}</p>
+  </div>
+
+  <div class="nav-links">
+    <a class="nav-link-custom"
+       [routerLink]="['/home']"
+       routerLinkActive="activeButton2">
+      <span class="material-icons">home</span>
+      <span class="link-text">Home</span>
+    </a>
+
+    <a class="nav-link-custom"
+       [routerLink]="['/login']"
+       routerLinkActive="activeButton">
+      <span class="material-icons">login</span>
+      <span class="link-text">Login</span>
+    </a>
+
+   
+  </div>
 </div>

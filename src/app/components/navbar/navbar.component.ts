@@ -9,5 +9,5 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
-  title: string = 'Mon Appli Angular';
+  title: string = 'Ez-Borne';
 }

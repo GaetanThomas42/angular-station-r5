@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Station } from '../models/station.interface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root' // Rend le service disponible a un Root level ( de partout dans l'app)
 })
 export class StationService {
 
@@ -11,6 +11,7 @@ export class StationService {
   constructor() { }
 
   getAll(): Array<Station>{
+
     return [
     {
       id: 1,
@@ -74,7 +75,7 @@ export class StationService {
   }
 
   getById(id: number): Station | undefined {
-    let stations = this.getAll()
+    let stations = this.getAll();
     return stations.find(station => station.id === id);
   }
 

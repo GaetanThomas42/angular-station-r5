@@ -1,1 +1,10 @@
-<p>station-detail works!</p>
+@if(station){
+  <div>
+    <p>ID :{{station.id}}</p>
+        <p>Name :{{station.name}}</p>
+        <p>Power :{{station.power}}</p>
+
+  </div>
+}@else {
+  <p>Station not found</p>
+}
